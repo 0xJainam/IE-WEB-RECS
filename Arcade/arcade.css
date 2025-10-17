@@ -1,0 +1,47 @@
+input {
+    display:none;
+}
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    margin:0;
+    background-color: #1a0a2e;
+    font-family: 'Press Start 2P', cursive;
+}
+.neon-text {
+    text-shadow:
+        0 0 5px #d3c4c4,
+        0 0 10px #0ff,
+        0 0 15px rgb(114, 82, 191);
+} /* I copied this font-color from gemini */
+.container {
+    overflow:hidden;
+    border: 10px solid #47044f;
+}
+.gameScreen h1{
+    color:white;
+    font-size: 2.4em;
+}
+.gameScreen {
+    background-color:#674ad1;
+    width:50vh;
+    height:50vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow:inset 0px 0px 60px rgba(0,0,0,0.7);
+    padding:20px;
+    gap:35px;
+}
+.games {
+    cursor:pointer;
+    color:#2e476e;
+    padding:15px;
+    font-size: 25px;
+}
+.games:hover{
+    transform:scale(1.1)
+}
