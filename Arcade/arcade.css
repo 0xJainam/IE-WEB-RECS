@@ -1,7 +1,7 @@
-input {
+input{
     display:none;
 }
-body {
+body{
     display:flex;
     justify-content: center;
     align-items: center;
@@ -16,15 +16,22 @@ body {
         0 0 10px #0ff,
         0 0 15px rgb(114, 82, 191);
 } /* I copied this font-color from gemini */
-.container {
+.container{
     overflow:hidden;
     border: 10px solid #47044f;
+    background: #2a0a2e; 
+    border-radius: 15px;
 }
-.gameScreen h1{
+h1{
     color:white;
     font-size: 2.4em;
+    text-align: center;
+    padding:15px 20px;
 }
-.gameScreen {
+.gameScreen{
+    position:relative;
+}
+.game_options{
     background-color:#674ad1;
     width:50vh;
     height:50vh;
@@ -35,8 +42,9 @@ body {
     box-shadow:inset 0px 0px 60px rgba(0,0,0,0.7);
     padding:20px;
     gap:35px;
+    position:relative;
 }
-.games {
+.games{
     cursor:pointer;
     color:#2e476e;
     padding:15px;
@@ -44,4 +52,41 @@ body {
 }
 .games:hover{
     transform:scale(1.1)
+}
+.gameplay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    pointer-events: none;
+    top:0;
+    left:0;
+}
+:is(#snake,#ping_pong):checked ~ .gameScreen .game_options{
+    opacity:0;
+    pointer-events: none;
+}
+#snake:checked ~ .container .snake_game{
+    opacity:1;
+    pointer-events: auto;
+}
+.snake_game{
+    background-color: black;
+    background-image: linear-gradient(rgba(29, 119, 146, 0.304) 1px, transparent 1px),linear-gradient(90deg, rgba(38, 138, 192, 0.313) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.snake_body{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: snake_moves 5s linear infinite;
+}
+@keyframes snake_moves{
+    0%{top:0;left:0;}
+    25%{top:0;left:380px;}
+    50%{top:380px;left:380px;}
+    75%{top:380px;left:0;}
+    100%{top:0;left:0;}
 }

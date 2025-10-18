@@ -9,13 +9,18 @@
 </head>
 <body>
     <main>
+        <input type="radio" name="game" id="snake">
+        <input type="radio" name="game" id="ping_pong">
         <div class="container">
-            <input type="radio" name="game" id="snake">
-            <input type="radio" name="game" id="ping_pong">
+            <h1 class="neon-text">Arcade</h1>
             <div class="gameScreen">
-                <h1 class="neon-text">Arcade</h1>
-                <label for="snake" class="games neon-text">Snake</label>
-                <label for="ping_pong" class="games neon-text">Ping Pong</label>
+                <div class="game_options">
+                    <label for="snake" class="games neon-text">Snake</label>
+                    <label for="ping_pong" class="games neon-text">Ping Pong</label>
+                </div>
+                <div class="gameplay snake_game">
+                    <div class="snake_body"></div>
+                </div>
             </div>
         </div>
     </main>
