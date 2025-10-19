@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 input{
     display:none;
 }
@@ -68,12 +71,12 @@ h1{
 }
 #snake:checked ~ .container .snake_game{
     opacity:1;
-    pointer-events: auto;
+}
+#ping_pong:checked ~ .container .ping_pong_game{
+    opacity:1;
 }
 .snake_game{
     background-color: black;
-    background-image: linear-gradient(rgba(29, 119, 146, 0.304) 1px, transparent 1px),linear-gradient(90deg, rgba(38, 138, 192, 0.313) 1px, transparent 1px);
-    background-size: 20px 20px;
 }
 .snake_body{
     position:absolute;
@@ -85,8 +88,63 @@ h1{
 }
 @keyframes snake_moves{
     0%{top:0;left:0;}
-    25%{top:0;left:380px;}
-    50%{top:380px;left:380px;}
-    75%{top:380px;left:0;}
+    25%{top:0;left:330px;}
+    50%{top:330px;left:330px;}
+    75%{top:330px;left:0;}
     100%{top:0;left:0;}
+}
+.ping_pong_game{
+    background-color: black;
+    position:absolute;
+    overflow:hidden;
+    width: 100%;
+    height:100%;
+}
+.racket{
+    position:absolute;
+    height:60px;
+    width:20px;
+    background-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    border-radius: 4px;
+}
+.left{
+    left:5px;
+    top:50%;
+    transform:translateY(-50%);
+    animation: leftMove 5s linear infinite;
+}
+.right{
+    right:5px;
+    top:50%;
+    transform:translateY(-50%);
+    animation: rightMove 5s linear infinite;
+}
+.ball{
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    background-color: #00ff00;
+    animation:ball_moves 5s linear infinite;
+}
+@keyframes ball_moves{
+    0%{top:20%;left:30px;}
+    25%{top:10%;left:90%;}
+    50%{top:95%;left:150px;}
+    62.5%{top:60%;left:30px}
+    75%{top:90%;left:90%;}
+    100%{top:20%;left:30px;}
+}
+@keyframes leftMove {
+    0%,100%{top:20%;}
+    25%{top:80%;}
+    62.5%{top:60%;}
+    75%{top:80%;}
+}
+@keyframes rightMove {
+    0%,100%{top:50%;}
+    25%{top:10%;}
+    50%{top:80%;}
+    75%{top:90%;}
 }
